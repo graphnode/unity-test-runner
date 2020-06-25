@@ -68,7 +68,7 @@ ls -alh $UNITY_PROJECT_PATH
 # Testing in EditMode
 #
 
-if [ $EDIT_MODE = true ]; then
+if [ "$EDIT_MODE" = true ]; then
   echo ""
   echo "###########################"
   echo "#   Testing in EditMode   #"
