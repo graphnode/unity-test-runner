@@ -2,10 +2,30 @@ name: 'Unity - Test runner'
 author: Webber Takken <webber@takken.io>
 description: 'Run tests for any Unity project.'
 inputs:
+  projectPath:
+    required: false
+    default: '.'
+    description: 'Specify the path to your Unity project to be tested. The path should be relative to the root of your project.'
   unityVersion:
     required: false
     default: '2019.2.11f1'
     description: 'Version of unity to use for testing the project.'
+  testMode:
+    required: false
+    default: 'all'
+    description: 'The type of tests to be run by the test runner. Options are: "all", "playmode", "editmode"'
+  artifactsPath:
+    required: false
+    default: 'artifacts'
+    description: 'Path where the test results should be stored. In this folder a folder will be created for every test mode.'
+  useHostNetwork:
+    required: false
+    default: false
+    description: 'Initializes Docker using the host network. This is useful if Unity needs to access a local server that was started as part of your workflow. Options are: "true", "false"' 
+  customParameters:
+    required: false
+    default: ''
+    description: 'Custom parameters to configure the test runner. Parameters must start with a hyphen (-) and may be followed by a value (without hyphen). Parameters without a value will be considered booleans (with a value of true).'
 outputs:
   artifactsPath:
     description: 'Path where the artifacts are stored'
